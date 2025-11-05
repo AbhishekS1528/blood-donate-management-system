@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="hero">
+            <h1><i class="fas fa-tint"></i> Blood Donation Management System</h1>
+            <p>Save lives, one donation at a time. Manage donors, schedules, and more.</p>
+        </div>
+        <nav>
+            <a href="#" onclick="showSection('register')"><i class="fas fa-user-plus"></i> Register Donor</a>
+            <a href="#" onclick="showSection('list')"><i class="fas fa-list"></i> Donor List</a>
+            <a href="#" onclick="showSection('schedule')"><i class="fas fa-calendar-alt"></i> Schedule Donation</a>
+            <a href="#" onclick="showSection('admin')"><i class="fas fa-cogs"></i> Admin Panel</a>
+        </nav>
+    </header>
+    <main>
+        <div id="register" class="section card">
+            <h2>Register New Donor</h2>
+            <form id="donorForm">
+                <input type="text" id="name" placeholder="Full Name" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="tel" id="phone" placeholder="Phone" required>
+                <select id="bloodType" required>
+                    <option value="">Select Blood Type</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+                <input type="date" id="lastDonation" placeholder="Last Donation Date">
+                <button type="submit"><i class="fas fa-save"></i> Register</button>
+            </form>
+        </div>
+        <div id="list" class="section card hidden">
+            <h2>Donor List</h2>
+            <table id="donorTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Blood Type</th>
+                        <th>Last Donation</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div id="schedule" class="section card hidden">
+            <h2>Schedule Donation</h2>
+            <form id="scheduleForm">
+                <select id="donorSelect" required>
+                    <option value="">Select Donor</option>
+                </select>
+                <input type="date" id="donationDate" required>
+                <input type="text" id="location" placeholder="Location" required>
+                <button type="submit"><i class="fas fa-calendar-check"></i> Schedule</button>
+            </form>
+            <h3>Scheduled Donations</h3>
+            <table id="scheduleTable">
+                <thead>
+                    <tr>
+                        <th>Donor</th>
+                        <th>Date</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div id="admin" class="section card hidden">
+            <h2>Admin Panel</h2>
+            <div class="stats">
+                <div class="stat"><i class="fas fa-users"></i> Total Donors: <span id="totalDonors">0</span></div>
+                <div class="stat"><i class="fas fa-calendar"></i> Total Scheduled: <span id="totalSchedules">0</span></div>
+            </div>
+            <button onclick="clearData()"><i class="fas fa-trash"></i> Clear All Data</button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Blood Donation Management System. Designed for life-saving impact.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
